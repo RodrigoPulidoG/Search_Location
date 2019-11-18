@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity  {
     private static final int PERMISSION_LOCATION_REQUEST_CODE = 200;
     private static final long UPDATE_INTERVAL = 4*1000;
     private static final long FAST_INTERVAL = 2*1000;
-    private static final long UPDATE_LOCATION_TIME = 3*1000;
-    private static final long UPDATE_LOCATION_DISTANCE = 5;
+    private static final long UPDATE_LOCATION_TIME = 1*100;
+    private static final long UPDATE_LOCATION_DISTANCE = 0;
     private static LocationManager locationManager;
     private Location currentLocationFused;
     private Location currentLocationProvider;
@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onStart() {
         super.onStart();
-        /*if (isLocationPermissionGranted()){
-            checkProviderLocation();
-        }else {
-            requestLocationPermission();
-        }*/
+//        if (isLocationPermissionGranted()){
+//            checkProviderLocation();
+//        }else {
+//            requestLocationPermission();
+//        }
     }
 
     private void requestLocationPermission() {
