@@ -19,6 +19,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -26,7 +28,7 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "SEARCH_LOC_MAIN";
     private static final int PERMISSION_LOCATION_REQUEST_CODE = 200;
@@ -45,8 +47,14 @@ public class MainActivity extends AppCompatActivity  {
         Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setViews();
         setLocationManager();
         requestLocationPermission();
+    }
+
+    private void setViews() {
+        Button decode = findViewById(R.id.token);
+        decode.setOnClickListener(this);
     }
 
     private void setLocationManager() {
@@ -237,4 +245,16 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.token:
+                launchDecode();
+        }
+    }
+
+    private void launchDecode() {
+        Intent intent = new Intent(this,DecodeActivity.class);
+        startActivity(intent);
+    }
 }
