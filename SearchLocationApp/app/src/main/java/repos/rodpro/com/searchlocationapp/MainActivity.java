@@ -3,10 +3,12 @@ package repos.rodpro.com.searchlocationapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AlertDialogLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -51,12 +53,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setViews();
         setLocationManager();
         requestLocationPermission();
+        displayDialog();
+    }
+
+    private void displayDialog() {
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("Flavor!!");
+        alertDialog.setMessage(BuildConfig.FLAVOR);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
     }
 
     private void setViews() {
         Button decode = findViewById(R.id.token);
         decode.setOnClickListener(this);
-        Toast.makeText(this, BuildConfig.FLAVOR, Toast.LENGTH_SHORT).show();
         if (BuildConfig.FLAVOR.equals("flavor_B")){
             decode.setVisibility(View.INVISIBLE);
         }
