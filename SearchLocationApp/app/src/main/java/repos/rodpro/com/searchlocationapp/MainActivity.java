@@ -57,16 +57,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void displayDialog() {
-        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-        alertDialog.setTitle("Flavor!!");
-        alertDialog.setMessage(BuildConfig.FLAVOR);
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-        alertDialog.show();
+        if (BuildConfig.FLAVOR.equals("flavor_B")){
+            Toast.makeText(this, BuildConfig.FLAVOR, Toast.LENGTH_SHORT).show();
+        }else {
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle("Flavor!!");
+            alertDialog.setMessage(BuildConfig.FLAVOR);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
     }
 
     private void setViews() {
