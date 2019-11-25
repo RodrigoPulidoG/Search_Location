@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setViews() {
         Button decode = findViewById(R.id.token);
         decode.setOnClickListener(this);
+        Toast.makeText(this, BuildConfig.FLAVOR, Toast.LENGTH_SHORT).show();
         if (BuildConfig.FLAVOR.equals("flavor_B")){
             decode.setVisibility(View.INVISIBLE);
         }
