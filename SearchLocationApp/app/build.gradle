@@ -22,9 +22,9 @@ android {
         }
     }
     productFlavors{
-        flavor1{
+        flavor_A{
         }
-        flavor2{
+        flavor_B{
         }
     }
 }
