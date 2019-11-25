@@ -8,6 +8,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0.2"
+        flavorDimensions "default"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -18,6 +19,12 @@ android {
         debug{
             minifyEnabled false
             debuggable true
+        }
+    }
+    productFlavors{
+        flavor1{
+        }
+        flavor2{
         }
     }
 }
