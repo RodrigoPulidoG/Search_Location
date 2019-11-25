@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setViews() {
         Button decode = findViewById(R.id.token);
         decode.setOnClickListener(this);
+        if (BuildConfig.FLAVOR.equals("flavor_B")){
+            decode.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void setLocationManager() {
